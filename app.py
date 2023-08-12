@@ -17,7 +17,7 @@ def create_over_time_chart(df, col, title):
     if col == 'Name':
         flag = 1
     data = helper.data_over_time(df, col)
-    data.rename(columns={'count': col}, inplace=True)
+    data.rename(columns={'index': 'edition', 'Year': col}, inplace=True)
     fig = px.line(data, x='Year', y=col)
     st.title(title)
 
