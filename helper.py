@@ -47,17 +47,17 @@ def data_over_time(df, col):
     return df.drop_duplicates(['Year', col])['Year'].value_counts().sort_values().reset_index()
 
 
-def most_successful1(df, sport):
-    temp_df = df.dropna(subset=['Medal'])
+# def most_successful1(df, sport):
+#     temp_df = df.dropna(subset=['Medal'])
 
-    if sport != 'Overall':
-        temp_df = temp_df[temp_df['Sport'] == sport]
+#     if sport != 'Overall':
+#         temp_df = temp_df[temp_df['Sport'] == sport]
 
-    x = temp_df['Name'].value_counts().reset_index().head(15).merge(df, left_on='index', right_on='Name', how='left')[
-        ['index', 'Name_x', 'Sport', 'region']].drop_duplicates('index')
-    print(x)
-    x.rename(columns={'index': 'Name', 'Name_x': 'Medals'}, inplace=True)
-    return x
+#     x = temp_df['Name'].value_counts().reset_index().head(15).merge(df, left_on='index', right_on='Name', how='left')[
+#         ['index', 'Name_x', 'Sport', 'region']].drop_duplicates('index')
+#     print(x)
+#     x.rename(columns={'index': 'Name', 'Name_x': 'Medals'}, inplace=True)
+#     return x
 
 
 def most_successful(df, sport):
@@ -66,7 +66,7 @@ def most_successful(df, sport):
     if sport != 'Overall':
         temp_df = temp_df[temp_df['Sport'] == sport]
 
-    medal_counts = temp_df['Name'].value_counts().reset_index().head(23)
+    medal_counts = temp_df['Name'].value_counts().reset_index().head(10)
     medal_counts.columns = ['Name', 'Medals']
 
     x = medal_counts.merge(df, left_on='Name', right_on='Name', how='left')
