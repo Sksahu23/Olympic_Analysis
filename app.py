@@ -63,6 +63,8 @@ user_menu = st.sidebar.radio(
     'Select an Option',
     ('Medal Tally', 'Overall Analysis', 'Country-wise Analysis', 'Athlete wise Analysis', 'Athlete comparison')
 )
+
+
 # 1) MEDAL TALLY : -------------------------------------
 
 if user_menu == 'Medal Tally':
